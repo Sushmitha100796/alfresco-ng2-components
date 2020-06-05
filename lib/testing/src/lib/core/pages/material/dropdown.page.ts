@@ -23,7 +23,7 @@ export class DropdownPage {
 
     dropDownElement: ElementFinder;
 
-    constructor(dropDownElement: ElementFinder = element.all(by.css('div[class="mat-select-arrow-wrapper"]')).first()) {
+    constructor(dropDownElement: ElementFinder = element.all(by.css('.mat-select-arrow-wrapper')).first()) {
         this.dropDownElement = dropDownElement;
     }
 
