@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import { by, element, ElementFinder, browser, Locator } from 'protractor';
+import { by, element, ElementFinder, browser } from 'protractor';
 import { DataTableComponentPage } from '../../core/pages/data-table-component.page';
 import { BrowserVisibility } from '../../core/utils/browser-visibility';
 import { BrowserActions } from '../../core/utils/browser-actions';
@@ -23,14 +23,14 @@ import { BrowserActions } from '../../core/utils/browser-actions';
 export class DocumentListPage {
 
     rootElement: ElementFinder;
-    optionButton: Locator = by.css('button[data-automation-id*="action_menu_"]');
+    optionButton = by.css('button[data-automation-id*="action_menu_"]');
     tableBody: ElementFinder;
     dataTable: DataTableComponentPage;
 
-    constructor(rootElement: ElementFinder = element.all(by.css('adf-document-list')).first()) {
+    constructor(rootElement = element.all(by.css('adf-document-list')).first()) {
         this.rootElement = rootElement;
         this.dataTable = new DataTableComponentPage(this.rootElement);
-        this.tableBody = rootElement.all(by.css('div[class="adf-datatable-body"]')).first();
+        this.tableBody = rootElement.all(by.css('.adf-datatable-body')).first();
     }
 
     async checkLockedIcon(content: string): Promise<void> {

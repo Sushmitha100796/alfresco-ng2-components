@@ -33,7 +33,7 @@ export class TaskHeaderCloudPage {
     endDateField: ElementFinder = element.all(by.css('span[data-automation-id*="endDate"] span')).first();
     idCardTextItem: CardTextItemPage = new CardTextItemPage('id');
     descriptionCardTextItem: CardTextItemPage = new CardTextItemPage('description');
-    taskPropertyList: ElementFinder = element(by.css('adf-cloud-task-header adf-card-view div[class="adf-property-list"]'));
+    taskPropertyList: ElementFinder = element(by.css('adf-cloud-task-header adf-card-view .adf-property-list'));
 
     async getAssignee(): Promise<string> {
         return this.assigneeCardTextItem.getFieldValue();

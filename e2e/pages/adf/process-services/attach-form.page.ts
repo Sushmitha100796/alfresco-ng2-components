@@ -15,18 +15,18 @@
  * limitations under the License.
  */
 
-import { element, by, ElementFinder } from 'protractor';
+import { element, by } from 'protractor';
 import { BrowserVisibility, BrowserActions, DropdownPage } from '@alfresco/adf-testing';
 
 export class AttachFormPage {
 
-    noFormMessage: ElementFinder = element(by.css('.adf-empty-content__title'));
-    attachFormButton: ElementFinder = element(by.id('adf-attach-form-attach-button'));
-    completeButton: ElementFinder = element(by.id('adf-attach-form-complete-button'));
-    formDropdown: ElementFinder = element(by.id('form_id'));
-    cancelButton: ElementFinder = element(by.id('adf-attach-form-cancel-button'));
-    defaultTitle: ElementFinder = element(by.css('mat-card-title[class="mat-card-title mat-card-title"]'));
-    attachFormDropdown = new DropdownPage(element(by.css("div[class='adf-attach-form-row']")));
+    noFormMessage = element(by.css('.adf-empty-content__title'));
+    attachFormButton = element(by.id('adf-attach-form-attach-button'));
+    completeButton = element(by.id('adf-attach-form-complete-button'));
+    formDropdown = element(by.id('form_id'));
+    cancelButton = element(by.id('adf-attach-form-cancel-button'));
+    defaultTitle = element(by.css('.mat-card-title'));
+    attachFormDropdown = new DropdownPage(element(by.css('.adf-attach-form-row')));
 
     async checkNoFormMessageIsDisplayed(): Promise<void> {
         await BrowserVisibility.waitUntilElementIsVisible(this.noFormMessage);
@@ -44,7 +44,7 @@ export class AttachFormPage {
         await BrowserActions.click(this.attachFormButton);
     }
 
-    async checkDefaultFormTitleIsDisplayed(formTitle): Promise<void> {
+    async checkDefaultFormTitleIsDisplayed(formTitle: string): Promise<void> {
         const result = await BrowserActions.getText(this.defaultTitle);
         await expect(result).toEqual(formTitle);
     }
@@ -57,7 +57,7 @@ export class AttachFormPage {
         await BrowserVisibility.waitUntilElementIsVisible(this.cancelButton);
     }
 
-    async selectAttachFormOption(option): Promise<void> {
+    async selectAttachFormOption(option: string): Promise<void> {
         await this.attachFormDropdown.selectDropdownOption(option);
     }
 

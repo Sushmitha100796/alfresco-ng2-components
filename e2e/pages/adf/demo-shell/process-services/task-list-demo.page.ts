@@ -16,26 +16,26 @@
  */
 
 import { BrowserActions, BrowserVisibility, DropdownPage, PaginationPage } from '@alfresco/adf-testing';
-import { by, element, ElementFinder } from 'protractor';
+import { by, element } from 'protractor';
 import { TasksListPage } from '../../process-services/tasks-list.page';
 
 export class TaskListDemoPage {
 
-    taskListPage: TasksListPage = new TasksListPage();
-    appId: ElementFinder = element(by.css("input[data-automation-id='appId input']"));
-    itemsPerPage: ElementFinder = element(by.css("input[data-automation-id='items per page']"));
-    itemsPerPageForm: ElementFinder = element(by.css("mat-form-field[data-automation-id='items per page']"));
-    processDefinitionId: ElementFinder = element(by.css("input[data-automation-id='process definition id']"));
-    processInstanceId: ElementFinder = element(by.css("input[data-automation-id='process instance id']"));
-    page: ElementFinder = element(by.css("input[data-automation-id='page']"));
-    pageForm: ElementFinder = element(by.css("mat-form-field[data-automation-id='page']"));
-    taskName: ElementFinder = element(by.css("input[data-automation-id='task name']"));
-    resetButton: ElementFinder = element(by.css("div[class='app-reset-button'] button"));
-    dueBefore: ElementFinder = element(by.css("input[data-automation-id='due before']"));
-    dueAfter: ElementFinder = element(by.css("input[data-automation-id='due after']"));
-    taskId: ElementFinder = element(by.css("input[data-automation-id='task id']"));
+    taskListPage = new TasksListPage();
+    appId = element(by.css("input[data-automation-id='appId input']"));
+    itemsPerPage = element(by.css("input[data-automation-id='items per page']"));
+    itemsPerPageForm = element(by.css("mat-form-field[data-automation-id='items per page']"));
+    processDefinitionId = element(by.css("input[data-automation-id='process definition id']"));
+    processInstanceId = element(by.css("input[data-automation-id='process instance id']"));
+    page = element(by.css("input[data-automation-id='page']"));
+    pageForm = element(by.css("mat-form-field[data-automation-id='page']"));
+    taskName = element(by.css("input[data-automation-id='task name']"));
+    resetButton = element(by.css('.app-reset-button button'));
+    dueBefore = element(by.css("input[data-automation-id='due before']"));
+    dueAfter = element(by.css("input[data-automation-id='due after']"));
+    taskId = element(by.css("input[data-automation-id='task id']"));
 
-    stateDropDownArrow: ElementFinder = element(by.css("mat-form-field[data-automation-id='state']"));
+    stateDropDownArrow = element(by.css("mat-form-field[data-automation-id='state']"));
     stateDropdown = new DropdownPage(this.stateDropDownArrow);
 
     taskList(): TasksListPage {

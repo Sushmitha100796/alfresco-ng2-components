@@ -50,11 +50,11 @@ export class TaskDetailsPage {
     taskDetailsEmptySection: ElementFinder = element(by.css('div[data-automation-id="adf-tasks-details--empty"]'));
     completeTask: ElementFinder = element(by.css('button[id="adf-no-form-complete-button"]'));
     completeFormTask: ElementFinder = element(by.css('button[id="adf-form-complete"]'));
-    taskDetailsTitle: ElementFinder = element(by.css('h2[class="adf-activiti-task-details__header"] span'));
+    taskDetailsTitle: ElementFinder = element(by.css('.adf-activiti-task-details__header span'));
     auditLogButton: ElementFinder = element(by.css('button[adf-task-audit]'));
     noPeopleInvolved: ElementFinder = element(by.id('no-people-label'));
     cancelInvolvePeopleButton: ElementFinder = element(by.id('close-people-search'));
-    involvePeopleHeader: ElementFinder = element(by.css('div[class="adf-search-text-header"]'));
+    involvePeopleHeader: ElementFinder = element(by.css('.adf-search-text-header'));
     removeInvolvedPeople: ElementFinder = element(by.css('button[data-automation-id="Remove"]'));
     peopleTitle: ElementFinder = element(by.id('people-title'));
     noFormMessage: ElementFinder = element(by.css('span[id*="no-form-message"]'));
@@ -62,7 +62,7 @@ export class TaskDetailsPage {
     attachFormButton: ElementFinder = element(by.id('adf-no-form-attach-form-button'));
     disabledAttachFormButton: ElementFinder = element(by.css('button[id="adf-no-form-attach-form-button"][disabled]'));
     removeAttachForm: ElementFinder = element(by.id('adf-attach-form-remove-button'));
-    attachFormName: ElementFinder = element(by.css('span[class="adf-form-title ng-star-inserted"]'));
+    attachFormName: ElementFinder = element(by.css('.adf-form-title'));
     emptyTaskDetails: ElementFinder = element(by.css('adf-task-details > div > div'));
     priority: ElementFinder = element(by.css('[data-automation-id*="card-textitem-value-priority"]'));
     editableAssignee = element(by.css('[data-automation-id="card-textitem-value-assignee"][class*="clickable"]'));
@@ -70,7 +70,7 @@ export class TaskDetailsPage {
     releaseElement = element(by.css('[data-automation-id="header-unclaim-button"]'));
     saveFormButton = element(by.css('button[id="adf-form-save"]'));
 
-    attachFormDropdown = new DropdownPage(element(by.css('div[class="adf-attach-form-row"]')));
+    attachFormDropdown = new DropdownPage(element(by.css('.adf-attach-form-row')));
 
     async checkEditableAssigneeIsNotDisplayed(): Promise<void> {
         await BrowserVisibility.waitUntilElementIsNotVisible(this.editableAssignee);

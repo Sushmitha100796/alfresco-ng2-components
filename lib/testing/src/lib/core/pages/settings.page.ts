@@ -36,7 +36,7 @@ export class SettingsPage {
     implicitFlowLabel: ElementFinder = element(by.css('mat-slide-toggle[name="implicitFlow"] label'));
     implicitFlowElement: ElementFinder = element(by.css('mat-slide-toggle[name="implicitFlow"]'));
     applyButton: ElementFinder = element(by.css('button[data-automation-id*="host-button"]'));
-    backButton: ElementFinder = element(by.cssContainingText('button span[class="mat-button-wrapper"]', 'Back'));
+    backButton: ElementFinder = element(by.cssContainingText('button .mat-button-wrapper', 'Back'));
     validationMessage: ElementFinder = element(by.cssContainingText('mat-error', 'This field is required'));
 
     providerDropdown = new DropdownPage(element(by.css('mat-select[id="adf-provider-selector"]')));

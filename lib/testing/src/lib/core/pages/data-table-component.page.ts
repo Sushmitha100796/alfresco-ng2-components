@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import { browser, by, element, Locator, protractor, ElementFinder, ElementArrayFinder } from 'protractor';
+import { browser, by, element, protractor, ElementFinder, ElementArrayFinder } from 'protractor';
 import { BrowserVisibility } from '../utils/browser-visibility';
 import { BrowserActions } from '../utils/browser-actions';
 
@@ -25,18 +25,18 @@ export class DataTableComponentPage {
     list: ElementArrayFinder;
     contents: ElementArrayFinder;
     tableBody: ElementFinder;
-    rows: Locator = by.css(`adf-datatable div[class*='adf-datatable-body'] adf-datatable-row[class*='adf-datatable-row']`);
+    rows = by.css(`adf-datatable div[class*='adf-datatable-body'] adf-datatable-row[class*='adf-datatable-row']`);
     allColumns: ElementArrayFinder;
     selectedRowNumber: ElementFinder;
     allSelectedRows: ElementArrayFinder;
     selectAll: ElementFinder;
     copyColumnTooltip: ElementFinder;
 
-    constructor(rootElement: ElementFinder = element.all(by.css('adf-datatable')).first()) {
+    constructor(rootElement = element.all(by.css('adf-datatable')).first()) {
         this.rootElement = rootElement;
         this.list = this.rootElement.all(by.css(`div[class*='adf-datatable-body'] adf-datatable-row[class*='adf-datatable-row']`));
-        this.contents = this.rootElement.all(by.css('div[class="adf-datatable-body"] span'));
-        this.tableBody = this.rootElement.all(by.css(`div[class='adf-datatable-body']`)).first();
+        this.contents = this.rootElement.all(by.css('.adf-datatable-body span'));
+        this.tableBody = this.rootElement.all(by.css(`.adf-datatable-body`)).first();
         this.allColumns = this.rootElement.all(by.css('div[data-automation-id*="auto_id_entry."]'));
         this.selectedRowNumber = this.rootElement.element(by.css(`adf-datatable-row[class*='is-selected'] div[data-automation-id*='text_']`));
         this.allSelectedRows = this.rootElement.all(by.css(`adf-datatable-row[class*='is-selected']`));

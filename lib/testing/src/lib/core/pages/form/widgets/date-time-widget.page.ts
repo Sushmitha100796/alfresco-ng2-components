@@ -16,28 +16,28 @@
  */
 
 import { FormFields } from '../form-fields';
-import { element, by, ElementFinder } from 'protractor';
+import { element, by } from 'protractor';
 import { BrowserVisibility, BrowserActions } from '../../../utils/public-api';
 
 export class DateTimeWidgetPage {
 
-    formFields: FormFields = new FormFields();
-    outsideLayer: ElementFinder = element(by.css('div[class*="cdk-overlay-container"]'));
+    formFields = new FormFields();
+    outsideLayer = element(by.css('div[class*="cdk-overlay-container"]'));
 
-    async checkWidgetIsVisible(fieldId): Promise<void> {
+    async checkWidgetIsVisible(fieldId: string): Promise<void> {
         await this.formFields.checkWidgetIsVisible(fieldId);
     }
 
-    async getDateTimeLabel(fieldId): Promise<string> {
+    async getDateTimeLabel(fieldId: string): Promise<string> {
         const label = element(by.css(`adf-form-field div[id="field-${fieldId}-container"] label`));
         return BrowserActions.getText(label);
     }
 
-    async setDateTimeInput(fieldId, value): Promise<void> {
+    async setDateTimeInput(fieldId: string, value: string): Promise<void> {
         await this.formFields.setValueInInputById(fieldId, value);
     }
 
-    async clickOutsideWidget(fieldId): Promise<void> {
+    async clickOutsideWidget(fieldId: string): Promise<void> {
         const form = await this.formFields.getWidget(fieldId);
         await BrowserActions.click(form);
     }
@@ -46,44 +46,44 @@ export class DateTimeWidgetPage {
         await BrowserActions.click(this.outsideLayer);
     }
 
-    async getErrorMessage(fieldId): Promise<string> {
-        const errorMessage = element(by.css(`adf-form-field div[id="field-${fieldId}-container"] div[class="adf-error-text"]`));
+    async getErrorMessage(fieldId: string): Promise<string> {
+        const errorMessage = element(by.css(`adf-form-field div[id="field-${fieldId}-container"] .adf-error-text`));
         return BrowserActions.getText(errorMessage);
     }
 
-    async selectDay(day): Promise<void> {
+    async selectDay(day: string): Promise<void> {
         const selectedDay = element(by.cssContainingText('div[class*="mat-datetimepicker-calendar-body-cell-content"]', day));
         await BrowserActions.click(selectedDay);
     }
 
-    async openDatepicker(fieldId): Promise<void> {
+    async openDatepicker(fieldId: string): Promise<void> {
         await BrowserActions.click(element(by.id(fieldId)));
     }
 
-    async selectTime(time): Promise<void> {
+    async selectTime(time: string): Promise<void> {
         const selectedTime = element.all(by.cssContainingText('div[class*="mat-datetimepicker-clock-cell"]', time)).first();
         await BrowserActions.click(selectedTime);
     }
 
-    async selectHour(hour): Promise<void> {
+    async selectHour(hour: string): Promise<void> {
         return this.selectTime(hour);
     }
 
-    async selectMinute(minute): Promise<void> {
+    async selectMinute(minute: string): Promise<void> {
         return this.selectTime(minute);
     }
 
-    async getPlaceholder(fieldId): Promise<string> {
+    async getPlaceholder(fieldId: string): Promise<string> {
         return this.formFields.getFieldPlaceHolder(fieldId);
     }
 
-    async removeFromDatetimeWidget(fieldId): Promise<void> {
+    async removeFromDatetimeWidget(fieldId: string): Promise<void> {
         await BrowserVisibility.waitUntilElementIsVisible(await this.formFields.getWidget(fieldId));
         const amountWidgetInput = element(by.id(fieldId));
         await BrowserActions.clearWithBackSpace(amountWidgetInput);
     }
 
-    async clearDateTimeInput(fieldId): Promise<void> {
+    async clearDateTimeInput(fieldId: string): Promise<void> {
         const dateInput = element(by.id(fieldId));
         await BrowserVisibility.waitUntilElementIsVisible(dateInput);
         await dateInput.clear();
